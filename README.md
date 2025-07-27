@@ -22,19 +22,46 @@ No external dependencies required. Just copy the files into your project.
 ```python
 from terminal_colors import TerminalColors
 
-color = TerminalColors()
+tc = TerminalColors(auto_reset=True)
 
-print(color.red("Red text"))
-print(color.green("Green text", bright=True))
-print(color.rgb("Custom RGB", 128, 0, 128))
-print(color.color256("256-color", 202))
-print(color.bold("Bold text"))
-print(color.underline("Underlined text"))
-print(color.colorize("Styled text", fg="blue", bg="yellow", bright=True, Style.BOLD, Style.UNDERLINE))
+# Basic colors
+print(tc.red('Red text'))
+print(tc.green('Green text'))
+print(tc.blue('Blue text'))
+print(tc.yellow('Yellow'))
+print(tc.magenta('Magenta'))
+print(tc.cyan('Cyan'))
 
-# Remove colors from a string
-plain = color.strip_colors("\033[31mRed\033[0m")
-print(plain)
+# Bright colors
+print(tc.red('Bright Red', bright=True))
+print(tc.green('Bright Green', bright=True))
+
+# Background colors
+print(tc.white('White on Red', bg='red'))
+print(tc.black('Black on Yellow', bg='yellow'))
+
+# Styles
+print(tc.bold('Bold'))
+print(tc.italic('Italic'))
+print(tc.underline('Underlined'))
+
+# Combined styles and colors
+print(tc.bold(tc.red('Bold Red Text')))
+
+# RGB colors (if terminal supports it)
+print(tc.rgb('Custom Pink', 255, 192, 203))
+
+# 256 colors (if terminal supports it)
+print(tc.color256('Orange-ish', 208))
+
+# Nested colors
+nested = tc.red(f"Red text with {tc.blue('blue')} and {tc.green('green')} inside")
+print(nested)
+
+# Strip colors
+colored = tc.red('Colored text')
+print(f"Original: {colored}")
+print(f"Stripped: {tc.strip_colors(colored)}")
 ```
 
 ## API Reference
