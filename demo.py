@@ -15,8 +15,8 @@ if __name__ == "__main__":
 
     # Background colors
     print("\nBackground Colors:")
-    print(f"{tc.white('White on Red')} ")
-    print(f"{tc.black('Black on Yellow')}")
+    print(tc.white("White on Red", bg="red"))
+    print(tc.black("Black on Yellow", bg="yellow"))
 
     # Styles
     print("\nText Styles:")
