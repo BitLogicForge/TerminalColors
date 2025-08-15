@@ -4,7 +4,7 @@ Supports 8/16 colors, 256 colors, RGB colors, background colors, and text styles
 """
 
 import re
-from constants import ColorType, Color, Style
+from .constants import ColorType, Color, Style
 
 from typing import Optional, Union
 
